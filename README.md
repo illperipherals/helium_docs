@@ -2,6 +2,43 @@ Building a Development Hotspot (the unofficial guide)
 =====================
 ----------------------
 
+Prelude:
+-------------
+This is based off of conversations with a number of Helium employees who graciously contributed their time to work with me on getting the process of onboarding a DIY hotspot to the Helium network down on paper. If something is off-base, or doesn't work on your setup, please lemme know, and I will try to get the docs rectified.
+
+Toward the end of this guide, you will see something about resetting your concentrator... this is dependent on what hardware you are using, and should be the only part of the guide that is incomplete. I welcome reset scripts for whatever setup you are using.
+
+Example used below in reset831.sh (for the RAK831 SPI Concentrator):
+
+    #!/bin/bash
+
+    # Do some basic checks
+    if [ "$1" = "" ]
+    then
+        echo "Usage: $0 gpio"
+        exit 1
+    fi
+
+    # Check if gpio is already exported
+    if [ ! -d /sys/class/gpio/gpio$1 ]
+    then
+        echo "Resetting gpio"
+        echo "17" > /sys/class/gpio/export
+        echo "out" > /sys/class/gpio/gpio17/direction
+        echo "1" > /sys/class/gpio/gpio17/value
+        sleep 5
+        echo "0" > /sys/class/gpio/gpio17/value
+        sleep 1
+        echo "0" > /sys/class/gpio/gpio17/value
+    fi
+
+
+Thanks, folks!
+
+-Travis
+
+
+
 This guide walks through the steps required to build a Development Hotspot that can send and receive packets over the wireless network, but not perform any blockchain mining functions.
 
 --------------
