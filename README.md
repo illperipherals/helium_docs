@@ -1,4 +1,4 @@
-Building a Development Hotspot
+Building a Development Hotspot (the unofficial guide)
 =====================
 ----------------------
 
