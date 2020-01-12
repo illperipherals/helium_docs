@@ -1,7 +1,7 @@
 Building a Development Hotspot
 =====================
 ----------------------
-
+(the unofficial guide)
 
 ----------------------
 ----------------------
