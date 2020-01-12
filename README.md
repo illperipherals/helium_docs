@@ -1,7 +1,7 @@
 Building a Development Hotspot (the unofficial guide)
 =====================
 ----------------------
-![](./img/helium_st_1.gif)
+![](./img/helium_st_1_sm.gif)
 
 Prelude:
 -------------
