@@ -280,15 +280,16 @@ To install OTP 21.3 in Raspbian, we'll first acquire the Erlang package from Erl
 
     wget https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_22.1.6-1~raspbian~buster_armhf.deb
 
-    sudo dpkg -i esl-erlang_21.3.3-1~raspbian~stretch_armhf.deb
-
-    sudo apt-get install -f
-
 Install various other dependencies: 
 
 (if you get a failure here, try it again. Dealing with mirrors is sometimes unreliable)
 
     sudo apt-get install libdbus-1-dev autoconf automake libtool flex libgmp-dev cmake libsodium-dev libssl-dev bison libsnappy-dev libclang-dev doxygen
+
+    sudo dpkg -i esl-erlang_21.3.3-1~raspbian~stretch_armhf.deb
+
+    sudo apt-get install -f
+
 
 We are also going to install screen to simplify things a bit later.
 
