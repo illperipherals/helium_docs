@@ -548,7 +548,10 @@ Once you have concentrate and rustup installed, we can use Rust's package manage
     git submodule update --init
     cargo build --features "sx1301"
 
-Once complete, you're ready to run concentrate.
+Once complete, let's bounce the box, and then you're ready to run concentrate.
+
+    sudo reboot
+    
 
 USING CONCENTRATE
 ------------------
