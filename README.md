@@ -412,15 +412,15 @@ Change the following settings:
 
 should be changed to:
 
-    {key, undefined}
+    {key, undefined},
     
 and:
 
-    {use_ebus, true}
+    {use_ebus, true},
 
 should be changed to:
 
-    {use_ebus, false}
+    {use_ebus, false},
 
 You should also edit log_root, base_dir and update_dir to be appropriate for whatever you prefer on your system.
 
