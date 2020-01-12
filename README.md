@@ -298,7 +298,7 @@ To install OTP 21.3 in Raspbian, we'll first acquire the Erlang package from Erl
 
 (expect errors after the second command here... that's why we use the force in the third)
 
-    wget https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_21.3.3-1~raspbian~stretch_armhf.deb
+    wget https://packages.erlang-solutions.com/erlang/debian/pool/esl-erlang_22.1.6-1~raspbian~buster_armhf.deb
 
     sudo dpkg -i esl-erlang_21.3.3-1~raspbian~stretch_armhf.deb
 
