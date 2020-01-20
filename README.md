@@ -286,7 +286,7 @@ Install various other dependencies:
 
     sudo apt-get install libdbus-1-dev autoconf automake libtool flex libgmp-dev cmake libsodium-dev libssl-dev bison libsnappy-dev libclang-dev doxygen
 
-    sudo dpkg -i esl-erlang_21.3.3-1~raspbian~stretch_armhf.deb
+    sudo dpkg -i esl-erlang_22.1.6-1~raspbian~buster_armhf.deb
 
     sudo apt-get install -f
 
