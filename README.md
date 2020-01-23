@@ -575,6 +575,12 @@ Conclusion
 
 That's it! Once you have miner and concentrate running you've built a Development Hotspot that can send and receive LongFi packets, and interact with the blockchain to deliver packets to their correct destination.
 
+You may use
+
+    tail -f /var/data/log/miner/console.log
+
+if you want console output in a screen.
+
 -------------------------
 
 Startup
