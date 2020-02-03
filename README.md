@@ -62,8 +62,7 @@ VS Code works well for this, as do many others.
 Open the newly created config file, and enter the following (replacing the obvious):
 
     country=US
-    ctrl_interface=DIR=/var/run/wpa_supplicant
-    GROUP=netdev
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     network={
         ssid="your_real_wifi_ssid"
