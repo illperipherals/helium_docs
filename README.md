@@ -511,64 +511,46 @@ The first number is the election epoch, and the second number is the block heigh
 
 ![](./img/pic18.png)
 
-Installing concentrate from Source
+Installing packet_forwarder and lora_gateway from Source
 ---------------------
 ---------------------
-Once you have miner running, you'll need concentrate to receive packets via SPI and the RAK2245 board and deliver them to the miner via UDP.
+Once you have miner running, you'll need packet_forwarder and lora_gateway to receive packets via SPI and the RAK2245 board and deliver them to the miner via UDP.
 
 Clone the git repository:
 
-    git clone https://github.com/helium/concentrate.git
+    git clone https://github.com/Lora-net/packet_forwarder
+    git clone https://github.com/Lora-net/lora_gateway
 
-You will need to install the dependencies listed below in order to use the Miner.
+And download the following configuration file:
 
-INSTALL RUST
------------------
-First, rustup must be installed, which can be done as follows:
+    https://github.com/illperipherals/helium_docs/global_conf.json
 
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-    source $HOME/.cargo/env
-
-Now, let's also install the following to keep the compilation from blowing up:
-
-    sudo apt-get install llvm
-    sudo apt-get install clang
-
-COMPILE CONCENTRATE
+ONE QUICK CHANGE
 ------------------
-Once you have concentrate and rustup installed, we can use Rust's package manager, Cargo, to build the concentrate application:
 
-    cd concentrate
-    git submodule update --init
-    cargo build --features "sx1301"
+Go into the file we pulled from https://github.com/Lora-net/lora_gateway/blob/master/libloragw/src/loragw_spi.native.c and modify line 56 to read:
 
-Once complete, let's bounce the box, and then you're ready to run concentrate.
+    #define SPI_SPEED       2000000
 
-    sudo reboot
-    
+Now we are ready to build.
 
-USING CONCENTRATE
+COMPILE THE PACKET FORWARDER and GATEWAY
 ------------------
-Start up concentrate and the longfi protocol wrapper by running:
 
-    ./target/debug/concentrate serve &
-    ./target/debug/concentrate longfi &
+Go into the packet_forwarder directory and and run:
 
-If you want to be able to see pretty printed packets in the console you can instead use:
+    ./compile.sh
 
-    ./target/debug/concentrate serve -p
-    ./target/debug/concentrate longfi &
+Once that wraps up, we can just run:
 
-You'll see output that looks something like this any time a packet is received:
+    sudo ./lora_pkt_fwd
 
-    received RxPacketLoRa { freq: 920600000, if_chain: 2, crc_check: Fail, timestamp: 2778.214131s, radio: R1, bandwidth: BW125kHz, spreading: SF7, coderate: 4/8, rssi: -117.0, snr: -11.5, snr_min: -15.0, snr_max: -8.0, crc: 4, payload: [225, 77, 252, 10, 79, 252, 5, 184, 159] }
 
 ---------------
 Conclusion
 ----------------
 
-That's it! Once you have miner and concentrate running you've built a Development Hotspot that can send and receive LongFi packets, and interact with the blockchain to deliver packets to their correct destination.
+That's it! Once you have miner and packet forwarder running, you've built a Development Hotspot that can send and receive LoRaWAN packets, and interact with the blockchain to deliver packets to their correct destination.
 
 You may use
 
@@ -577,48 +559,5 @@ You may use
 if you want console output in a screen.
 
 -------------------------
-
-Startup
--------------------------
--------------------------
-Alright, so... everything should be set up now. The following is a very rough walkthrough of the commands in the init process:
-
-    sudo su
-    screen
-
-Ctrl-a c
-
-Ctrl-a c
-
-Ctrl-a c
-
-Ctrl-a 0
-
-    cd concentrate
-    ./reset2245.sh start 17
-    cd ..
-    cd miner
-
-    _build/prod/rel/miner/bin/miner console
-
-Ctrl-a 1
-
-    cd miner
-
-    _build/prod/rel/miner/bin/miner peer book -s
-
-    _build/prod/rel/miner/bin/miner info height
-
-Ctrl-a 2
-
-    cd concentrate
-
-    ./target/debug/concentrate serve -p
-
-Ctrl-a 3
-
-    cd concentrate
-
-    ./target/debug/concentrate longfi &
 
 
