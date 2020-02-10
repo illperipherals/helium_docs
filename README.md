@@ -523,7 +523,7 @@ Clone the git repository:
 
 And download the following configuration file:
 
-    https://github.com/illperipherals/helium_docs/global_conf.json
+    https://github.com/illperipherals/helium_docs/blob/master/global_conf.json
 
 ONE QUICK CHANGE
 ------------------
