@@ -378,17 +378,13 @@ Use the following to test your SSH connection to GitHub:
 
     ssh -T git@github.com
 
-Go into rebar.config and change the blockchain-core over from git to https (should look like this):
-
-    {deps, [{blockchain, {git, "<https://github.com/helium/blockchain-core.git>",{branch, "master"}}},{hbbft, {git, "<https://github.com/helium/erlang-hbbft.git>", {branch, "master"}}},{dkg, {git, "<https://github.com/helium/erlang-dkg.git>", {branch, "master"}}},{ecc508, {git, "<https://github.com/helium/ecc508.git>", {branch, "master"}}},{ebus, {git, "<https://github.com/helium/ebus.git>", {branch, "master"}}},{helium_proto, ".*", {git, "<https://github.com/helium/proto.git>", {branch, "master"}}},recon]}.
-
 Now we need to change the repo we are using for rocksdb...
 
     cd miner
 
     nano rebar.lock
 
-Ctrl-w ( find/where) rocksdb
+Ctrl-w (find/where) rocksdb
 
 Change the repo and SHA over to the following:
 
